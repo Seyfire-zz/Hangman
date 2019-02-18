@@ -3,6 +3,7 @@
 
 
 import random
+import string
 
 WORDLIST_FILENAME = "words.txt"
 
@@ -71,7 +72,11 @@ def getAvailableLetters(lettersGuessed):
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-
+    available = []
+    for letter in string.ascii_lowercase:
+        if letter not in lettersGuessed:
+            available.append(letter)
+    return ''.join(available)
     
 
 def hangman(secretWord):
@@ -91,8 +96,6 @@ def hangman(secretWord):
     * After each round, you should also display to the user the 
       partially guessed word so far, as well as letters that the 
       user has not yet guessed.
-
-    Follows the other limitations detailed in the problem write-up.
     '''
 
 
@@ -105,4 +108,4 @@ def hangman(secretWord):
 secretWord = 'apple'
 guesses = ['a', 'l', 'k', 'r', 'p', 'z']
 
-print(getGuessedWord(secretWord, guesses))
+print(getAvailableLetters(guesses))
