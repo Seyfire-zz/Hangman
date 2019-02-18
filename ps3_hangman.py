@@ -56,7 +56,13 @@ def getGuessedWord(secretWord, lettersGuessed):
     returns: string, comprised of letters and underscores that represents
       what letters in secretWord have been guessed so far.
     '''
-    # FILL IN YOUR CODE HERE...
+    display = ''
+    for c in secretWord:
+        if c not in lettersGuessed:
+            display = display + '_ '
+        else:
+            display = display + c
+    return display
 
 
 def getAvailableLetters(lettersGuessed):
@@ -65,7 +71,7 @@ def getAvailableLetters(lettersGuessed):
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-    # FILL IN YOUR CODE HERE...
+
     
 
 def hangman(secretWord):
@@ -88,18 +94,15 @@ def hangman(secretWord):
 
     Follows the other limitations detailed in the problem write-up.
     '''
-    # FILL IN YOUR CODE HERE...
 
 
 
 
 
-# When you've completed your hangman function, uncomment these two lines
-# and run this file to test! (hint: you might want to pick your own
-# secretWord while you're testing)
-
-# secretWord = chooseWord(wordlist).lower()
+# secretWord = 'apple'   # chooseWord(wordlist).lower()
 # hangman(secretWord)
-# secretWord = 'apple'
-# guesses = ['a', 'l', 'k', 'r', 'p', 'z', 'e']
 
+secretWord = 'apple'
+guesses = ['a', 'l', 'k', 'r', 'p', 'z']
+
+print(getGuessedWord(secretWord, guesses))
