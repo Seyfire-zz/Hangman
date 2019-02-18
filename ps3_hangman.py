@@ -1,11 +1,6 @@
 # Hangman game
-#
-
 # -----------------------------------
-# Helper code
-# You don't need to understand this helper code,
-# but you will have to know how to use the functions
-# (so be sure to read the docstrings!)
+
 
 import random
 
@@ -36,8 +31,6 @@ def chooseWord(wordlist):
     """
     return random.choice(wordlist)
 
-# end of helper code
-# -----------------------------------
 
 # Load the list of words into the variable wordlist
 # so that it can be accessed from anywhere in the program
@@ -50,8 +43,10 @@ def isWordGuessed(secretWord, lettersGuessed):
     returns: boolean, True if all the letters of secretWord are in lettersGuessed;
       False otherwise
     '''
-    # FILL IN YOUR CODE HERE...
-
+    for c in secretWord:
+        if c not in lettersGuessed:
+            return False
+    return True
 
 
 def getGuessedWord(secretWord, lettersGuessed):
@@ -62,7 +57,6 @@ def getGuessedWord(secretWord, lettersGuessed):
       what letters in secretWord have been guessed so far.
     '''
     # FILL IN YOUR CODE HERE...
-
 
 
 def getAvailableLetters(lettersGuessed):
@@ -100,10 +94,12 @@ def hangman(secretWord):
 
 
 
-
 # When you've completed your hangman function, uncomment these two lines
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
 
 # secretWord = chooseWord(wordlist).lower()
 # hangman(secretWord)
+# secretWord = 'apple'
+# guesses = ['a', 'l', 'k', 'r', 'p', 'z', 'e']
+
